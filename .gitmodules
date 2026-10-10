@@ -1,0 +1,3 @@
+[submodule ".agents/skills/dev-agent-workflow"]
+	path = .agents/skills/dev-agent-workflow
+	url = https://github.com/Evgen-rus/dev-agent-workflow.git
