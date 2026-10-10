@@ -54,7 +54,7 @@ For an existing checkout, run `git submodule update --init --recursive`.
 The `dev-agent-workflow` skill is pinned as a submodule at
 `.agents/skills/dev-agent-workflow`. Its four Codex agent templates are tracked
 in `.codex/agents/`, with research instructions specific to Planets.
-`.codex/config.toml` defaults subagents to Luna low and caps concurrency at two.
+`.codex/config.toml` defaults subagents to Luna low and caps concurrency at four.
 No global installation or Cursor configuration is required.
 
 Invoke `$dev-agent-workflow` in Codex. The skill will be available on the next

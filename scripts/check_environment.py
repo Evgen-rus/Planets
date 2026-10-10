@@ -29,7 +29,7 @@ def main():
     with (root / ".codex/config.toml").open("rb") as handle:
         agents = tomllib.load(handle)["agents"]
     assert agents["default_subagent_model"] == "gpt-6-luna"
-    assert agents["max_concurrent_threads_per_session"] == 2
+    assert agents["max_concurrent_threads_per_session"] == pilot["maximum_concurrent_workers"] == 4
     for name, effort in (("worker-low", "low"), ("worker-xhigh", "xhigh"), ("verifier", "xhigh")):
         with (root / f".codex/agents/{name}.toml").open("rb") as handle:
             agent = tomllib.load(handle)

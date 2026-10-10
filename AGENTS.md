@@ -8,7 +8,7 @@ Search public TESS observations for uncatalogued transit-like signals. This repo
 
 The primary agent manages: define tasks, assign files and budgets, inspect decisive evidence, integrate reports, and accept results. Delegate research, downloads, analysis, implementation, and scientific checks to **GPT-6 Luna**: `worker-low` for routine work, `worker-xhigh` for complex work, `verifier` for independent checking. Preparation in the original setup chat was an explicit exception.
 
-Use project-local `dev-agent-workflow`. Run at most two Luna agents concurrently, with one writer per file and fresh, narrow context. Explicitly select model and effort if custom roles are unavailable. Never silently substitute the primary model. If Luna cannot run, stop and report. Confirm actual execution metadata when available; configuration alone is not proof.
+Use project-local `dev-agent-workflow`. Run at most four Luna agents concurrently, with one writer per file and fresh, narrow context. Explicitly select model and effort if custom roles are unavailable. Never silently substitute the primary model. If Luna cannot run, stop and report. Confirm actual execution metadata when available; configuration alone is not proof.
 
 ## Project Structure
 

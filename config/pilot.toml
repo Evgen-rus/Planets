@@ -1,7 +1,7 @@
 stage = "prepared"
 initial_targets = 20
 maximum_targets = 50
-maximum_concurrent_workers = 2
+maximum_concurrent_workers = 4
 # Conservative project defaults; stop and ask before exceeding these limits.
 maximum_download_gib = 2
 maximum_run_hours = 2
