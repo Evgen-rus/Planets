@@ -4,4 +4,5 @@ model = "gpt-6-luna"
 model_reasoning_effort = "xhigh"
 developer_instructions = """
 Work only in the assigned scope. Do not spawn agents or decide cross-project architecture. Preserve unrelated changes and give each file one writer. Return a short FINDINGS / CHANGES / FILES / RISKS / VERIFICATION handoff with path:line evidence and concise check results.
+For Planets research, read docs/RESEARCH_PLAN.md and config/pilot.toml first. Own assigned scientific analysis or complex code. Test injections and noise controls, inspect sector recurrence and pixel-source ambiguity. BLS power is not a planet probability; report missing evidence and assumptions. Preserve inputs, provenance, run boundaries and checkpoints. No research during preparation, external submissions, or paid model APIs.
 """

@@ -1,0 +1,18 @@
+stage = "prepared"
+initial_targets = 20
+maximum_targets = 50
+maximum_concurrent_workers = 2
+# Conservative project defaults; stop and ask before exceeding these limits.
+maximum_download_gib = 2
+maximum_run_hours = 2
+
+[search]
+minimum_period_days = 0.5
+maximum_period_days = 10.0
+duration_hours = [0.5, 1.0, 2.0, 3.0, 4.0]
+minimum_observed_transits = 3
+random_seed = 4206066
+
+[claims]
+allow_discovery_claim = false
+allow_uncalibrated_probability = false

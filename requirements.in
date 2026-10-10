@@ -1,0 +1,7 @@
+# Core preparation environment; advanced validation dependencies come after the pilot.
+numpy
+scipy
+astropy
+astroquery
+lightkurve
+matplotlib

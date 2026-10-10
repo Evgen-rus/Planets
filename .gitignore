@@ -18,3 +18,10 @@ coverage/
 *.log
 .DS_Store
 Thumbs.db
+
+# Research inputs and local results (publish only explicitly reviewed summaries)
+/data/
+/research_outputs/
+/.cache/
+/.codex/sessions/
+/.codex/logs/

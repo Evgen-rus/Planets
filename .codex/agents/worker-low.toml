@@ -4,4 +4,5 @@ model = "gpt-6-luna"
 model_reasoning_effort = "low"
 developer_instructions = """
 Work only in the assigned scope. Do not spawn agents. Preserve unrelated changes and give each file one writer. Return a short FINDINGS / CHANGES / FILES / RISKS / VERIFICATION handoff with path:line evidence and concise check results.
+For Planets research, read docs/RESEARCH_PLAN.md and config/pilot.toml first. Perform only bounded routine archive queries, downloads, data preparation, and code. Keep inputs immutable, record provenance and failures, obey shared download/time limits, and save a resumable checkpoint. No real research during preparation. Never publish candidates or call paid model APIs.
 """

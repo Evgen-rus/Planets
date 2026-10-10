@@ -1,35 +1,31 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
+## Mission & Scope
 
-`Planets` currently contains contributor documentation and a project-local Codex workflow. No application source, tests, assets, package manifest, or build configuration exists yet.
+Search public TESS observations for uncatalogued transit-like signals. This repository is prepared for a **20–50-star pilot**, not a discovery claim. Read `docs/RESEARCH_PLAN.md`, `docs/NEXT_CHAT.md`, and `config/pilot.toml` before research. Do not expand to 500 stars without user approval.
 
-The workflow skill is a submodule in `.agents/skills/dev-agent-workflow`; installed Codex agents live in `.codex/agents/`. See `README.md` for cloning and usage instructions.
+## Agent Roles
 
-When implementation begins, group files by responsibility and document the actual layout in `README.md`. Use clear directories such as `src/`, `tests/`, and `assets/` only when the chosen stack needs them. Keep generated output separate from maintained source.
+The primary agent manages: define tasks, assign files and budgets, inspect decisive evidence, integrate reports, and accept results. Delegate research, downloads, analysis, implementation, and scientific checks to **GPT-6 Luna**: `worker-low` for routine work, `worker-xhigh` for complex work, `verifier` for independent checking. Preparation in the original setup chat was an explicit exception.
 
-## Build, Test, and Development Commands
+Use project-local `dev-agent-workflow`. Run at most two Luna agents concurrently, with one writer per file and fresh, narrow context. Explicitly select model and effort if custom roles are unavailable. Never silently substitute the primary model. If Luna cannot run, stop and report. Confirm actual execution metadata when available; configuration alone is not proof.
 
-No install, development, build, or test commands are configured. Do not assume commands such as `npm test` or `make build` work.
+## Project Structure
 
-When adding tooling, document exact commands, prerequisites, and required runtime versions in `README.md`. Provide reproducible dependency installation and explain how to run the application locally before requesting review.
+`scripts/` contains checks; `config/` holds limits; `docs/` contains methodology. `.agents/skills/dev-agent-workflow` is a pinned submodule; `.codex/agents/` holds customized templates. Preserve the submodule and merge template updates explicitly.
 
-## Coding Style & Naming Conventions
+Store immutable observations/catalogs in ignored `data/`; derived products, manifests, plots, and checkpoints in ignored `research_outputs/<run_id>/`. Never overwrite completed runs.
 
-No language or formatter has been selected. Follow the chosen language's standard conventions and keep indentation consistent within each file. Use descriptive names that communicate purpose; avoid unexplained abbreviations.
+## Environment & Testing
 
-Prefer small, focused modules and existing platform features. If formatting or linting tools are introduced, commit their configuration and document their invocation.
+Use Python 3.11 in `.venv`. Dependencies are pinned in `requirements.txt`; direct dependencies are in `requirements.in`. Follow `README.md` for installation.
 
-## Testing Guidelines
+Run `.venv\Scripts\python.exe scripts\check_environment.py` for the offline synthetic BLS check and `git diff --check` before committing. Add targeted scientific tests, including injected transits and noise controls. Synthetic success is not real-data validation.
 
-No test framework or coverage target exists yet. Add tests alongside the first meaningful application behavior, using the selected framework's naming conventions. Cover normal behavior, relevant edge cases, and bug regressions. Document the test command and any required fixtures; keep fixtures free of secrets.
+## Scientific Integrity
 
-## Commit & Pull Request Guidelines
+Record URLs, UTC retrieval times, SHA-256, units, time conventions, parameters, exclusions, and failures. Count unique TICs actually analyzed. Missing catalogs or unresolved matches block novelty claims. Separate detected signals from vetted candidates. BLS scores are not planet probabilities. Never claim confirmation or NASA follow-up without evidence.
 
-Use concise, imperative commit subjects such as `Add orbital calculation tests`. No established application commit history exists yet.
+## Style & Contributions
 
-Keep changes focused. Pull requests should explain the purpose, summarize changes, list verification performed, and link relevant issues. Include screenshots for visible UI changes and disclose skipped checks.
-
-## Security & Configuration
-
-Never commit credentials, private data, or local environment files. Document required configuration with placeholder values. Keep `.gitignore` updated for generated artifacts and local dependencies; retain shared Codex configuration in version control.
+Use four-space Python indentation, `snake_case`, and focused scripts. Use imperative commit subjects. PRs explain purpose, validation, limitations, and issues. No formatter or coverage target is configured. Never commit secrets, environments, raw data, or unreviewed results. Research publication and external submissions require explicit authorization.
